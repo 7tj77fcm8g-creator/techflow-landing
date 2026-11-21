@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="نقدم حلولاً تقنية متطورة للشركات الناشئة والمؤسسات. تطوير برمجيات، بنية تحتية سحابية، ومنتجات رقمية بمعايير عالمية.">
+  <title>شركة تقنية — حلول برمجية متطورة للمؤسسات والشركات الناشئة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== TOKEN BLOCK ===== */
+    :root {
+      --font-display: "Space Grotesk", system-ui, sans-serif;
+      --font-text:    "IBM Plex Sans", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+      --step--1: 0.8rem;    --step-0: 1rem;     --step-1: 1.25rem;
+      --step-2:  1.563rem;  --step-3: 1.953rem; --step-4: 2.441rem;
+      --step-5:  3.052rem;  --step-6: 3.815rem; --step-7: 4.768rem;
+      --space-3xs: 0.25rem; --space-2xs: 0.5rem; --space-xs: 0.75rem;
+      --space-s:   1rem;    --space-m:   1.5rem; --space-l:  2rem;
+      --space-xl:  3rem;    --space-2xl: 4.5rem; --space-3xl: 7rem;
+      --space-4xl: 10.5rem;
+      --base:       #ffffff;
+      --surface:    #fafafa;
+      --ink:        #0f0f0f;
+      --ink-2:      #404040;
+      --ink-3:      #3d3d3d;
+      --line:       #e5e5e5;
+      --accent:     #1a1f3e;
+      --accent-2:   #2d376b;
+      --accent-fg:  #ffffff;
+      --radius:     0;
+      --radius-ctl: 4px;
+      --border:     1px solid var(--line);
+      --shadow:     none;
+      --dur-fast:   100ms;
+      --dur:        200ms;
+      --dur-slow:   350ms;
+      --ease:       cubic-bezier(0.25, 0.1, 0.25, 1);
+      --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --base:       #0a0a0a;
+        --surface:    #121212;
+        --ink:        #fafafa;
+        --ink-2:      #d4d4d4;
+        --ink-3:      #b3b3b3;
+        --line:       #2a2a2a;
+        --accent:     #4a56a0;
+        --accent-2:   #5d6bd4;
+        --accent-fg:  #ffffff;
+      }
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-text);
+      font-size: var(--step-0);
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--base);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font: inherit; background: none; border: none; cursor: pointer; }
+    input, textarea { font: inherit; background: none; border: none; outline: none; }
+
+    /* ===== TYPOGRAPHY ===== */
+    .display-1 { font-family: var(--font-display); font-size: var(--step-7); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; }
+    .display-2 { font-family: var(--font-display); font-size: var(--step-6); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .display-3 { font-family: var(--font-display); font-size: var(--step-5); font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
+    .heading-1 { font-family: var(--font-display); font-size: var(--step-4); font-weight: 600; line-height: 1.2; }
+    .heading-2 { font-family: var(--font-display); font-size: var(--step-3); font-weight: 600; line-height: 1.25; }
+    .heading-3 { font-family: var(--font-display); font-size: var(--step-2); font-weight: 600; line-height: 1.3; }
+    .body-lg { font-size: var(--step-1); line-height: 1.7; }
+    .body { font-size: var(--step-0); line-height: 1.6; }
+    .body-sm { font-size: var(--step--1); line-height: 1.5; }
+    .mono { font-family: var(--font-mono); }
+    .text-ink { color: var(--ink); }
+    .text-ink-2 { color: var(--ink-2); }
+    .text-ink-3 { color: var(--ink-3); }
+    .text-accent { color: var(--accent); }
+    .font-medium { font-weight: 500; }
+    .font-semibold { font-weight: 600; }
+
+    /* ===== LAYOUT ===== */
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-l); }
+    .section { padding: var(--space-4xl) 0; }
+    .section--sm { padding: var(--space-3xl) 0; }
+    .section--lg { padding: var(--space-4xl) 0 var(--space-3xl); }
+    .grid { display: grid; gap: var(--space-xl); }
+    .grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .flex { display: flex; gap: var(--space-l); }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-s { gap: var(--space-s); }
+    .gap-m { gap: var(--space-m); }
+    .gap-l { gap: var(--space-l); }
+    .gap-xl { gap: var(--space-xl); }
+
+    /* ===== COMPONENTS ===== */
+
+    /* Button */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-s);
+      padding: var(--space-s) var(--space-xl);
+      font-size: var(--step-0);
+      font-weight: 500;
+      line-height: 1;
+      border-radius: var(--radius-ctl);
+      transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+      white-space: nowrap;
+    }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .btn--primary {
+      background: var(--accent);
+      color: var(--accent-fg);
+      border: 1px solid var(--accent);
+    }
+    .btn--primary:hover:not(:disabled) { background: var(--accent-2); border-color: var(--accent-2); }
+    .btn--secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .btn--secondary:hover:not(:disabled) { background: var(--surface); border-color: var(--ink-3); }
+    .btn--ghost {
+      background: transparent;
+      color: var(--ink-2);
+      border: 1px solid transparent;
+      padding: var(--space-s) var(--space-m);
+    }
+    .btn--ghost:hover:not(:disabled) { color: var(--ink); background: var(--surface); }
+    .btn--sm { padding: var(--space-2xs) var(--space-m); font-size: var(--step--1); }
+
+    /* Link */
+    .link { display: inline-flex; align-items: center; gap: var(--space-2xs); color: var(--accent); font-weight: 500; transition: gap var(--dur-fast) var(--ease); text-decoration: underline; text-underline-offset: 2px; }
+    .link:hover { gap: var(--space-xs); }
+    .link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+    /* Rule / Divider */
+    .rule { width: 100%; height: 1px; background: var(--line); }
+    .rule--short { width: 60px; height: 2px; background: var(--accent); }
+
+    /* Badge */
+    .badge { display: inline-flex; align-items: center; padding: var(--space-3xs) var(--space-s); font-size: var(--step--1); font-weight: 500; border-radius: var(--radius-ctl); background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); }
+
+    /* Card - no shadow, border only */
+    .card { padding: var(--space-xl); border: 1px solid var(--line); background: var(--base); transition: border-color var(--dur) var(--ease); }
+    .card:hover { border-color: var(--ink-3); }
+
+    /* Input */
+    .input { width: 100%; padding: var(--space-s) var(--space-m); font-size: var(--step-0); border: 1px solid var(--line); border-radius: var(--radius-ctl); background: var(--base); color: var(--ink); transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease); }
+    .input::placeholder { color: var(--ink-3); }
+    .input:hover { border-color: var(--ink-3); }
+    .input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent); }
+    .input:disabled { opacity: 0.5; cursor: not-allowed; }
+    .form-group { display: flex; flex-direction: column; gap: var(--space-2xs); }
+    .form-label { font-size: var(--step--1); font-weight: 500; color: var(--ink); }
+    .form-error { font-size: var(--step--1); color: #c00; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    .animate-fade-up { animation: fadeUp var(--dur-slow) var(--ease-out) forwards; opacity: 0; }
+    .delay-1 { animation-delay: 100ms; }
+    .delay-2 { animation-delay: 200ms; }
+    .delay-3 { animation-delay: 300ms; }
+    .delay-4 { animation-delay: 400ms; }
+    .delay-5 { animation-delay: 500ms; }
+
+    /* Gradient underline for memorable moment */
+    .gradient-underline { position: relative; }
+    .gradient-underline::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent)); background-size: 200% 100%; animation: gradientShift 3s ease-in-out infinite; border-radius: 2px; }
+
+    /* ===== HEADER / NAV ===== */
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: color-mix(in srgb, var(--base) 92%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+    .header.scrolled { background: color-mix(in srgb, var(--base) 98%, transparent); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; align-items: center; gap: var(--space-s); font-family: var(--font-display); font-size: var(--step-2); font-weight: 700; color: var(--ink); }
+    .logo-mark { width: 36px; height: 36px; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 20px; height: 20px; stroke: var(--accent-fg); }
+    .nav-links { display: none; gap: var(--space-xl); }
+    .nav-link { font-size: var(--step--1); font-weight: 500; color: var(--ink-2); transition: color var(--dur-fast) var(--ease); position: relative; }
+    .nav-link::after { content: ""; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width var(--dur) var(--ease); }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link:hover::after { width: 100%; }
+    .nav-cta { display: none; }
+    .nav-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-ctl); color: var(--ink); transition: background var(--dur-fast) var(--ease); }
+    .nav-toggle:hover { background: var(--surface); }
+    .nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .nav-toggle svg { width: 24px; height: 24px; stroke: currentColor; }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: flex; }
+      .nav-toggle { display: none; }
+    }
+
+    /* Mobile Menu */
+    .mobile-menu { position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--base); border-top: 1px solid var(--line); padding: var(--space-xl) var(--space-l); display: flex; flex-direction: column; gap: var(--space-m); transform: translateY(-100%); opacity: 0; visibility: hidden; transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease), visibility var(--dur) var(--ease); z-index: 99; }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; visibility: visible; }
+    .mobile-menu .nav-link { display: block; padding: var(--space-m) 0; font-size: var(--step-1); border-bottom: 1px solid var(--line); }
+    .mobile-menu .nav-link::after { display: none; }
+    .mobile-menu .btn { width: 100%; justify-content: center; margin-top: var(--space-m); }
+
+    /* ===== HERO ===== */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 72px; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% -20%, color-mix(in srgb, var(--accent) 4%, transparent) 0%, transparent 70%); pointer-events: none; }
+    .hero-content { position: relative; z-index: 1; width: 100%; }
+    .hero-badge { display: inline-flex; align-items: center; gap: var(--space-s); margin-bottom: var(--space-xl); }
+    .hero-badge .badge { background: color-mix(in srgb, var(--accent) 8%, var(--base)); border-color: color-mix(in srgb, var(--accent) 20%, var(--line)); color: var(--accent); }
+    .hero-title { margin-bottom: var(--space-l); max-width: 900px; }
+    .hero-desc { font-size: var(--step-1); color: var(--ink-2); max-width: 640px; margin-bottom: var(--space-2xl); line-height: 1.7; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-m); margin-bottom: var(--space-3xl); }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: var(--space-2xl); padding-top: var(--space-2xl); border-top: 1px solid var(--line); }
+    .stat { display: flex; flex-direction: column; gap: var(--space-3xs); }
+    .stat-value { font-family: var(--font-display); font-size: var(--step-4); font-weight: 700; color: var(--ink); line-height: 1; }
+    .stat-label { font-size: var(--step--1); color: var(--ink-3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+    .hero-visual { display: none; position: relative; }
+
+    @media (min-width: 1024px) {
+      .hero { padding-top: 72px; }
+      .hero-content { max-width: 600px; }
+      .hero-visual { display: block; position: absolute; right: var(--space-l); top: 50%; transform: translateY(-50%); width: 50%; max-width: 600px; }
+      .hero-stats { border-top: none; padding-top: 0; border-right: 1px solid var(--line); padding-right: var(--space-2xl); flex-direction: column; gap: var(--space-xl); }
+    }
+
+    /* Hero Visual - Code Window Mockup */
+    .code-window { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-ctl); overflow: hidden; box-shadow: 0 20px 60px -20px color-mix(in srgb, var(--ink) 15%, transparent); }
+    .code-window__bar { display: flex; align-items: center; gap: var(--space-s); padding: var(--space-s) var(--space-m); background: color-mix(in srgb, var(--surface) 80%, var(--base)); border-bottom: 1px solid var(--line); }
+    .code-window__dots { display: flex; gap: 6px; }
+    .code-window__dot { width: 12px; height: 12px; border-radius: 50%; background: var(--line); }
+    .code-window__dot:first-child { background: #ff5f57; }
+    .code-window__dot:nth-child(2) { background: #febc2e; }
+    .code-window__dot:last-child { background: #28ca42; }
+    .code-window__title { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-3); margin-left: auto; }
+    .code-window__content { padding: var(--space-xl); font-family: var(--font-mono); font-size: var(--step--1); line-height: 1.8; color: var(--ink); overflow-x: auto; }
+    .code-window__line { display: flex; gap: var(--space-m); padding: var(--space-2xs) 0; }
+    .code-window__num { color: var(--ink-3); user-select: none; text-align: right; min-width: 40px; }
+    .code-window__code { flex: 1; }
+    .token-keyword { color: #c678dd; }
+    .token-function { color: #61afef; }
+    .token-string { color: #98c379; }
+    .token-comment { color: var(--ink-3); }
+    .token-class { color: #e5c07b; }
+    .token-operator { color: var(--ink-2); }
+
+    /* Floating elements */
+    .float-elements { position: absolute; inset: 0; pointer-events: none; }
+    .float-el { position: absolute; border: 1px solid var(--line); background: var(--base); padding: var(--space-m) var(--space-l); font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-2); box-shadow: 0 8px 30px -10px color-mix(in srgb, var(--ink) 10%, transparent); animation: float 6s ease-in-out infinite; }
+    .float-el-1 { top: 15%; right: -50px; animation-delay: 0s; }
+    .float-el-2 { bottom: 20%; right: -80px; animation-delay: 2s; }
+    .float-el-3 { top: 50%; right: -120px; animation-delay: 4s; }
+
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+    @media (max-width: 1023px) { .float-elements { display: none; } }
+
+    /* ===== SERVICES ===== */
+    .services { background: var(--surface); }
+    .section-header { text-align: center; max-width: 720px; margin: 0 auto var(--space-3xl); }
+    .section-tag { display: inline-block; margin-bottom: var(--space-m); }
+    .section-title { margin-bottom: var(--space-m); }
+    .section-desc { color: var(--ink-2); font-size: var(--step-1); }
+    .service-card { display: flex; flex-direction: column; height: 100%; }
+    .service-icon { width: 48px; height: 48px; background: color-mix(in srgb, var(--accent) 8%, var(--base)); border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line)); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-l); transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+    .service-icon svg { width: 24px; height: 24px; stroke: var(--accent); transition: stroke var(--dur) var(--ease); }
+    .service-card:hover .service-icon { background: var(--accent); border-color: var(--accent); }
+    .service-card:hover .service-icon svg { stroke: var(--accent-fg); }
+    .service-title { margin-bottom: var(--space-s); }
+    .service-desc { color: var(--ink-2); flex: 1; margin-bottom: var(--space-l); }
+    .service-link { align-self: flex-start; }
+
+    /* ===== WORK / CASE STUDIES ===== */
+    .work-item { display: grid; grid-template-columns: 1fr; gap: var(--space-2xl); align-items: center; padding: var(--space-3xl) 0; border-top: 1px solid var(--line); }
+    .work-item:last-child { border-bottom: 1px solid var(--line); }
+    .work-item:nth-child(even) .work-content { order: 2; }
+    .work-item:nth-child(even) .work-visual { order: 1; }
+    .work-tag { display: inline-block; margin-bottom: var(--space-m); }
+    .work-title { margin-bottom: var(--space-m); }
+    .work-desc { color: var(--ink-2); margin-bottom: var(--space-l); max-width: 480px; }
+    .work-tech { display: flex; flex-wrap: wrap; gap: var(--space-s); margin-bottom: var(--space-l); }
+    .work-link { align-self: flex-start; }
+    .work-visual { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-ctl); overflow: hidden; aspect-ratio: 16/10; position: relative; }
+    .work-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease); }
+    .work-item:hover .work-visual img { transform: scale(1.02); }
+    .work-overlay { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 60%, transparent); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--dur) var(--ease); }
+    .work-visual:hover .work-overlay { opacity: 1; }
+    .work-overlay .btn { transform: translateY(10px); transition: transform var(--dur) var(--ease); }
+    .work-visual:hover .work-overlay .btn { transform: translateY(0); }
+
+    @media (min-width: 768px) {
+      .work-item { grid-template-columns: 1fr 1fr; }
+      .work-item:nth-child(even) .work-content { order: 1; }
+      .work-item:nth-child(even) .work-visual { order: 2; }
+    }
+
+    /* ===== TECH STACK ===== */
+    .tech { background: var(--surface); }
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--space-m); }
+    .tech-item { display: flex; flex-direction: column; align-items: center; gap: var(--space-s); padding: var(--space-xl) var(--space-m); background: var(--base); border: 1px solid var(--line); transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease); }
+    .tech-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .tech-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--ink-2); transition: color var(--dur) var(--ease); }
+    .tech-item:hover .tech-icon { color: var(--accent); }
+    .tech-name { font-size: var(--step--1); font-weight: 500; color: var(--ink); text-align: center; }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonial-card { display: flex; flex-direction: column; height: 100%; }
+    .testimonial-quote { font-size: var(--step-1); line-height: 1.7; color: var(--ink); margin-bottom: var(--space-xl); flex: 1; position: relative; padding-right: var(--space-l); }
+    .testimonial-quote::before { content: ""; position: absolute; right: 0; top: -0.5em; bottom: -0.5em; width: 2px; background: var(--accent); }
+    .testimonial-author { display: flex; align-items: center; gap: var(--space-m); }
+    .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; background: color-mix(in srgb, var(--accent) 15%, var(--base)); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: var(--step-1); font-weight: 700; color: var(--accent); }
+    .testimonial-name { font-weight: 500; }
+    .testimonial-role { font-size: var(--step--1); color: var(--ink-3); }
+    .testimonial-company { font-size: var(--step--1); color: var(--ink-2); margin-top: var(--space-3xs); }
+
+    /* ===== CTA SECTION ===== */
+    .cta { background: var(--ink); color: var(--base); text-align: center; }
+    .cta .section-title { color: var(--base); }
+    .cta .section-desc { color: color-mix(in srgb, var(--base) 70%, transparent); }
+    .cta .btn--primary { background: var(--base); color: var(--ink); border-color: var(--base); }
+    .cta .btn--primary:hover { background: color-mix(in srgb, var(--base) 90%, var(--ink)); }
+    .cta .btn--secondary { border-color: color-mix(in srgb, var(--base) 30%, transparent); color: var(--base); }
+    .cta .btn--secondary:hover { background: color-mix(in srgb, var(--base) 10%, transparent); border-color: var(--base); }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: var(--space-m); justify-content: center; margin-top: var(--space-xl); }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--surface); border-top: 1px solid var(--line); padding: var(--space-4xl) 0 var(--space-2xl); }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-2xl); margin-bottom: var(--space-3xl); }
+    .footer-brand { max-width: 320px; }
+    .footer-logo { margin-bottom: var(--space-m); }
+    .footer-desc { color: var(--ink-2); font-size: var(--step--1); line-height: 1.7; margin-bottom: var(--space-l); }
+    .footer-social { display: flex; gap: var(--space-m); }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: var(--radius-ctl); color: var(--ink-2); transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease); }
+    .footer-social a:hover { border-color: var(--accent); color: var(--accent); }
+    .footer-social svg { width: 20px; height: 20px; }
+    .footer-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); }
+    .footer-column h4 { font-family: var(--font-display); font-size: var(--step-0); font-weight: 600; margin-bottom: var(--space-m); color: var(--ink); }
+    .footer-column ul { display: flex; flex-direction: column; gap: var(--space-s); }
+    .footer-column a { font-size: var(--step--1); color: var(--ink-2); transition: color var(--dur-fast) var(--ease); }
+    .footer-column a:hover { color: var(--accent); }
+    .footer-bottom { padding-top: var(--space-2xl); border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: var(--space-m); align-items: center; text-align: center; }
+    .footer-copyright { font-size: var(--step--1); color: var(--ink-3); }
+    .footer-legal { display: flex; flex-wrap: wrap; gap: var(--space-l); justify-content: center; }
+    .footer-legal a { font-size: var(--step--1); color: var(--ink-3); transition: color var(--dur-fast) var(--ease); }
+    .footer-legal a:hover { color: var(--ink); }
+
+    @media (min-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: span 2; }
+    }
+    @media (min-width: 1024px) {
+      .footer-grid { grid-template-columns: 2fr repeat(3, 1fr); }
+      .footer-brand { grid-column: span 1; }
+      .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+    }
+
+    /* ===== CONTACT FORM ===== */
+    .contact-form { max-width: 640px; margin: 0 auto; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: var(--space-l); }
+    @media (min-width: 640px) { .form-row { grid-template-columns: 1fr 1fr; } }
+    .form-submit { margin-top: var(--space-l); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1023px) {
+      .display-1 { font-size: var(--step-5); }
+      .display-2 { font-size: var(--step-4); }
+      .display-3 { font-size: var(--step-3); }
+      .heading-1 { font-size: var(--step-3); }
+      .section { padding: var(--space-3xl) 0; }
+      .section--lg { padding: var(--space-3xl) 0 var(--space-2xl); }
+      .hero-stats { border-top: 1px solid var(--line); border-right: none; padding-top: var(--space-xl); padding-right: 0; flex-direction: row; justify-content: space-between; }
+      .stat { flex: 1; text-align: center; }
+    }
+    @media (max-width: 639px) {
+      :root { --space-xl: 2rem; --space-2xl: 3rem; --space-3xl: 5rem; --space-4xl: 7rem; }
+      .container { padding: 0 var(--space-m); }
+      .btn { padding: var(--space-s) var(--space-l); }
+      .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .hero-stats { flex-direction: column; gap: var(--space-l); text-align: center; }
+      .footer-links { grid-template-columns: 1fr; text-align: center; }
+    }
+
+    /* ===== ACCESSIBILITY ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only" style="position: absolute; top: -100%; left: 50%; transform: translateX(-50%); padding: var(--space-m) var(--space-l); background: var(--accent); color: var(--accent-fg); border-radius: var(--radius-ctl); z-index: 1000; font-weight: 500; text-decoration: none; transition: top var(--dur-fast) var(--ease);">الانتقال إلى المحتوى الرئيسي</a>
+  <script>
+    document.addEventListener('focusin', (e) => {
+      const skipLink = document.querySelector('.sr-only');
+      if (e.target === skipLink) {
+        skipLink.style.top = 'var(--space-m)';
+      }
+    });
+    document.addEventListener('focusout', (e) => {
+      const skipLink = document.querySelector('.sr-only');
+      if (e.target === skipLink) {
+        skipLink.style.top = '-100%';
+      }
+    });
+  </script>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header" role="banner">
+    <div class="container">
+      <nav class="nav" role="navigation" aria-label="التنقل الرئيسي">
+        <a href="#" class="logo" aria-label="TechFlow - الرئيسية">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 18 2 12 8 6"></polyline></svg>
+          </span>
+          <span>TechFlow</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#services" class="nav-link">الخدمات</a></li>
+          <li><a href="#work" class="nav-link">أعمالنا</a></li>
+          <li><a href="#tech" class="nav-link">التقنيات</a></li>
+          <li><a href="#testimonials" class="nav-link">آراء العملاء</a></li>
+        </ul>
+
+        <div class="nav-cta" style="display: flex; gap: var(--space-s);">
+          <a href="#contact" class="btn btn--ghost">تسجيل الدخول</a>
+          <a href="#contact" class="btn btn--primary">ابدأ مشروعك</a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="فتح القائمة">
+          <svg id="menuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg id="closeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="قائمة التنقل" aria-modal="true">
+      <nav role="navigation" aria-label="التنقل الرئيسي للجوال">
+        <ul role="list">
+          <li><a href="#services" class="nav-link">الخدمات</a></li>
+          <li><a href="#work" class="nav-link">أعمالنا</a></li>
+          <li><a href="#tech" class="nav-link">التقنيات</a></li>
+          <li><a href="#testimonials" class="nav-link">آراء العملاء</a></li>
+          <li><a href="#contact" class="btn btn--ghost">تسجيل الدخول</a></li>
+          <li><a href="#contact" class="btn btn--primary">ابدأ مشروعك</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="float-elements" aria-hidden="true">
+        <div class="float-el float-el-1">deploy --prod</div>
+        <div class="float-el float-el-2">npm run build</div>
+        <div class="float-el float-el-3">docker push</div>
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge">شريك تقني موثوق لـ 50+ شركة</span>
+          </div>
+
+          <h1 class="display-1 hero-title gradient-underline" id="hero-title">نحول الأفكار المعقدة إلى منتجات تقنية قابلة للتوسع</h1>
+
+          <p class="hero-desc">فريق من المهندسين والخبراء يساعدك في بناء منصات رقمية، منتجات SaaS، وحلول سحابية بمعايير عالمية. من الفكرة إلى الإطلاق وما بعده.</p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn--primary">ابدأ مشروعك الآن</a>
+            <a href="#work" class="btn btn--secondary">اطلاع على أعمالنا</a>
+          </div>
+
+          <div class="hero-stats" role="list" aria-label="إحصائيات الشركة">
+            <div class="stat" role="listitem">
+              <span class="stat-value mono">50+</span>
+              <span class="stat-label">مشروع مكتمل</span>
+            </div>
+            <div class="stat" role="listitem">
+              <span class="stat-value mono">98%</span>
+              <span class="stat-label">رضا العملاء</span>
+            </div>
+            <div class="stat" role="listitem">
+              <span class="stat-value mono">24/7</span>
+              <span class="stat-label">دعم فني</span>
+            </div>
+            <div class="stat" role="listitem">
+              <span class="stat-value mono">15+</span>
+              <span class="stat-label">تقنية مستخدمة</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="code-window">
+            <div class="code-window__bar">
+              <div class="code-window__dots">
+                <span class="code-window__dot"></span>
+                <span class="code-window__dot"></span>
+                <span class="code-window__dot"></span>
+              </div>
+              <span class="code-window__title">deployment.yml</span>
+            </div>
+            <div class="code-window__content">
+              <div class="code-window__line"><span class="code-window__num">1</span><span class="code-window__code"><span class="token-keyword">name:</span> <span class="token-string">Production Deploy</span></span></div>
+              <div class="code-window__line"><span class="code-window__num">2</span><span class="code-window__code"><span class="token-keyword">on:</span></span></div>
+              <div class="code-window__line"><span class="code-window__num">3</span><span class="code-window__code">  <span class="token-keyword">push:</span></span></div>
+              <div class="code-window__line"><span class="code-window__num">4</span><span class="code-window__code">    <span class="token-keyword">branches:</span> [main]</span></div>
+              <div class="code-window__line"><span class="code-window__num">5</span><span class="code-window__code"></span></div>
+              <div class="code-window__line"><span class="code-window__num">6</span><span class="code-window__code"><span class="token-keyword">jobs:</span></span></div>
+              <div class="code-window__line"><span class="code-window__num">7</span><span class="code-window__code">  <span class="token-function">build:</span></span></div>
+              <div class="code-window__line"><span class="code-window__num">8</span><span class="code-window__code">    <span class="token-keyword">runs-on:</span> ubuntu-latest</span></div>
+              <div class="code-window__line"><span class="code-window__num">9</span><span class="code-window__code">    <span class="token-keyword">steps:</span></span></div>
+              <div class="code-window__line"><span class="code-window__num">10</span><span class="code-window__code">      - <span class="token-keyword">uses:</span> actions/checkout@v4</span></div>
+              <div class="code-window__line"><span class="code-window__num">11</span><span class="code-window__code">      - <span class="token-keyword">run:</span> npm ci && npm test</span></div>
+              <div class="code-window__line"><span class="code-window__num">12</span><span class="code-window__code">      - <span class="token-keyword">run:</span> npm run build</span></div>
+              <div class="code-window__line"><span class="code-window__num">13</span><span class="code-window__code">      - <span class="token-keyword">run:</span> docker build -t app .</span></div>
+              <div class="code-window__line"><span class="code-window__num">14</span><span class="code-window__code">      - <span class="token-keyword">run:</span> docker push registry/app:latest</span></div>
+              <div class="code-window__line"><span class="code-window__num">15</span><span class="code-window__code"></span></div>
+              <div class="code-window__line"><span class="code-window__num">16</span><span class="code-window__code"><span class="token-comment"># Zero-downtime deployment</span></span></div>
+              <div class="code-window__line"><span class="code-window__num">17</span><span class="code-window__code">      - <span class="token-keyword">run:</span> kubectl rollout restart deployment/app</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="services section" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag badge">ما نقدمه</span>
+          <h2 class="heading-1 section-title" id="services-title">خدمات هندسية متكاملة</h2>
+          <p class="section-desc">نغطي دورة حياة المنتج كاملةً — من الاستكشاف والتصميم إلى التطوير والنشر والصيانة المستمرة.</p>
+        </header>
+
+        <ul class="grid grid--3" role="list" style="list-style: none; padding: 0;">
+          <li role="listitem"><article class="card service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+            </div>
+            <h3 class="heading-3 service-title">تطوير منتجات SaaS</h3>
+            <p class="service-desc">بناء منصات برمجية كخدمة (SaaS) قابلة للتوسع مع بنية تحتية حديثة، مصادقة متقدمة، ونماذج اشتراك مرنة.</p>
+            <a href="#contact" class="link service-link">اكتشف المزيد <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </article></li>
+
+          <li role="listitem"><article class="card service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"></rect><path d="M16 2v20"></path><path d="M8 2v20"></path><path d="M2 16h20"></path><path d="M2 8h20"></path></svg>
+            </div>
+            <h3 class="heading-3 service-title">بنية تحتية سحابية و DevOps</h3>
+            <p class="service-desc">تصميم وتنفيذ بنى تحتية سحابية مرنة على AWS/GCP/Azure مع CI/CD، Kubernetes، ومراقبة شاملة.</p>
+            <a href="#contact" class="link service-link">اكتشف المزيد <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </article></li>
+
+          <li role="listitem"><article class="card service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 class="heading-3 service-title">تطبيقات الويب والجوال</h3>
+            <p class="service-desc">تطوير واجهات مستخدم حديثة وسريعة الاستجابة باستخدام React، Next.js، React Native، و Flutter بتجربة مستخدم متميزة.</p>
+            <a href="#contact" class="link service-link">اكتشف المزيد <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </article></li>
+
+          <li role="listitem"><article class="card service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+            </div>
+            <h3 class="heading-3 service-title">استشارات تقنية و CTO جزئي</h3>
+            <p class="service-desc">إرشاد استراتيجي للشركات الناشئة والمؤسسات: هندسة البرمجيات، قرارات البنية التحتية، وتوظيف الفرق التقنية.</p>
+            <a href="#contact" class="link service-link">اكتشف المزيد <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </article></li>
+
+          <li role="listitem"><article class="card service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="heading-3 service-title">الأمان والامتثال</h3>
+            <p class="service-desc">تطبيق معايير الأمان المتقدمة، اختبارات الاختراق، وامتثال GDPR/SOC2/ISO27001 لحماية بياناتك وعملائك.</p>
+            <a href="#contact" class="link service-link">اكتشف المزيد <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </article></li>
+
+          <li role="listitem"><article class="card service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <h3 class="heading-3 service-title">تحسين الأداء والتوسع</h3>
+            <p class="service-desc">تحليل وتحسين التطبيقات الحالية لتقليل زمن الاستجابة، تحسين التكلفة، ودعم ملايين المستخدمين.</p>
+            <a href="#contact" class="link service-link">اكتشف المزيد <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </article></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== WORK / CASE STUDIES ===== -->
+    <section id="work" class="section section--lg" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag badge">مشاريع مختارة</span>
+          <h2 class="heading-1 section-title" id="work-title">حلول أثرناها في الواقع</h2>
+          <p class="section-desc">كل مشروع يمثل تحدياً فريداً تم حله بتصميم هندسي دقيق وتنفيذ متقن.</p>
+        </header>
+
+        <ul role="list" style="list-style: none; padding: 0;">
+          <!-- Project 1 -->
+          <li role="listitem"><article class="work-item reveal">
+            <div class="work-content">
+              <span class="work-tag badge">منصة تجارة إلكترونية</span>
+              <h3 class="heading-2 work-title">منصة "مرن" — تجارة إلكترونية متعددة البائعين</h3>
+              <p class="work-desc">بناء منصة تجارة إلكترونية كاملة تدعم 10,000+ بائع و 500,000 طلب شهرياً مع لوحة تحكم موحدة، نظام مدفوعات متكامل، وتحليلات في الوقت الفعلي.</p>
+              <div class="work-tech">
+                <span class="badge">Next.js</span>
+                <span class="badge">PostgreSQL</span>
+                <span class="badge">Redis</span>
+                <span class="badge">Kubernetes</span>
+                <span class="badge">Stripe</span>
+              </div>
+              <a href="#" class="link work-link">دراسة الحالة الكاملة <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+            </div>
+            <div class="work-visual">
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--accent) 5%, var(--surface)) 100%); display: flex; align-items: center; justify-content: center;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+              </div>
+              <div class="work-overlay">
+                <a href="#" class="btn btn--primary" style="background: var(--base); color: var(--ink); border-color: var(--base);">عرض المشروع</a>
+              </div>
+            </div>
+          </article></li>
+
+          <!-- Project 2 -->
+          <li role="listitem"><article class="work-item reveal">
+            <div class="work-content">
+              <span class="work-tag badge">منتج SaaS B2B</span>
+              <h3 class="heading-2 work-title">"أتمتة" — منصة إدارة عمليات للشركات</h3>
+              <p class="work-desc">منتج SaaS يساعد الشركات على أتمتة سير العمل، إدارة الموافقات، وتتبع الأداء. انطلق من صفر إلى 200 شركة في 8 أشهر مع معدل تشرب 95%.</p>
+              <div class="work-tech">
+                <span class="badge">React</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">Prisma</span>
+                <span class="badge">AWS</span>
+                <span class="badge">TypeScript</span>
+              </div>
+              <a href="#" class="link work-link">دراسة الحالة الكاملة <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+            </div>
+            <div class="work-visual">
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--accent) 5%, var(--surface)) 100%); display: flex; align-items: center; justify-content: center;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3;"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path></svg>
+              </div>
+              <div class="work-overlay">
+                <a href="#" class="btn btn--primary" style="background: var(--base); color: var(--ink); border-color: var(--base);">عرض المشروع</a>
+              </div>
+            </div>
+          </article></li>
+
+          <!-- Project 3 -->
+          <li role="listitem"><article class="work-item reveal">
+            <div class="work-content">
+              <span class="work-tag badge">تطبيق جوال + ويب</span>
+              <h3 class="heading-2 work-title">"صحة" — منصة رعاية صحية عن بُعد</h3>
+              <p class="work-desc">تطبيق شامل للاستشارات الطبية عن بُعد مع حجز مواعيد، وصفات إلكترونية، وتكامل مع أنظمة المستشفيات. يخدم 50,000+ مريض عبر 3 دول.</p>
+              <div class="work-tech">
+                <span class="badge">Flutter</span>
+                <span class="badge">Firebase</span>
+                <span class="badge">HIPAA</span>
+                <span class="badge">WebRTC</span>
+                <span class="badge">Dart</span>
+              </div>
+              <a href="#" class="link work-link">دراسة الحالة الكاملة <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+            </div>
+            <div class="work-visual">
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--accent) 5%, var(--surface)) 100%); display: flex; align-items: center; justify-content: center;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="work-overlay">
+                <a href="#" class="btn btn--primary" style="background: var(--base); color: var(--ink); border-color: var(--base);">عرض المشروع</a>
+              </div>
+            </div>
+          </article></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== TECH STACK ===== -->
+    <section id="tech" class="tech section" aria-labelledby="tech-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag badge">مجموعة التقنيات</span>
+          <h2 class="heading-1 section-title" id="tech-title">نختار الأداة المناسبة لكل مهمة</h2>
+          <p class="section-desc">لا نؤمن بحل واحد يناسب الجميع. خبرتنا الواسعة تتيح لنا اختيار المجموعة التقنية المثلى لمتطلباتك الخاصة.</p>
+        </header>
+
+        <ul class="tech-grid" role="list" style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--space-m);">
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span class="tech-name">React</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><span class="tech-name">Node.js</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg><span class="tech-name">TypeScript</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18L18 6M6 6l12 12"></path></svg><span class="tech-name">Next.js</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><span class="tech-name">PostgreSQL</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><span class="tech-name">Redis</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg><span class="tech-name">Docker</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><span class="tech-name">Kubernetes</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><span class="tech-name">AWS</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><span class="tech-name">GCP</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg><span class="tech-name">Terraform</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><span class="tech-name">Flutter</span></div></li>
+          <li role="listitem"><div class="tech-item reveal"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><span class="tech-name">GraphQL</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="section section--lg" aria-labelledby="testimonials-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag badge">ثقة عملائنا</span>
+          <h2 class="heading-1 section-title" id="testimonials-title">شراكات طويلة الأمد مبنية على النتائج</h2>
+          <p class="section-desc">لا نكتفي بتسليم الكود — نلتزم بنجاح منتجك ونمو فريقك.</p>
+        </header>
+
+        <ul class="grid grid--3" role="list" style="list-style: none; padding: 0;">
+          <li role="listitem"><article class="card testimonial-card reveal">
+            <blockquote class="testimonial-quote">"فريق TechFlow فهم متطلباتنا المعقدة بسرعة وقدم حلاً قابلاً للتوسع تجاوز توقعاتنا. احترافيتهم في إدارة المشروع والتواصل جعلت العملية سلسة من البداية للنهاية."</blockquote>
+            <footer>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">سأ</div>
+                <div>
+                  <h3 class="testimonial-name heading-3">سارة أحمد</h3>
+                  <div class="testimonial-role">CTO، شركة فينتك ناشئة</div>
+                </div>
+              </div>
+              <div class="testimonial-company">PayFlow — تمت عملية استحواذ بقيمة $12M</div>
+            </footer>
+          </article></li>
+
+          <li role="listitem"><article class="card testimonial-card reveal">
+            <blockquote class="testimonial-quote">"أنجزوا في 3 أشهر ما استغرق من فريقنا الداخلي سنة كاملة. جودة الكود، التوثيق، ونقل المعرفة كانت استثنائية. الآن نملك منصة نستطيع تطويرها داخلياً بثقة."</blockquote>
+            <footer>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">مخ</div>
+                <div>
+                  <h3 class="testimonial-name heading-3">محمد الخالدي</h3>
+                  <div class="testimonial-role">VP Engineering، منصة تجارة إلكترونية</div>
+                </div>
+              </div>
+              <div class="testimonial-company">Marn Marketplace — 500K طلب/شهر</div>
+            </footer>
+          </article></li>
+
+          <li role="listitem"><article class="card testimonial-card reveal">
+            <blockquote class="testimonial-quote">"كشركة مؤسسة، كنا نحتاج شريكاً يفهم متطلبات الامتثال والأمان. TechFlow لم يسلموا المنتج فقط، بل وضعوا معايير هندسية نستخدمها الآن في جميع فرقنا."</blockquote>
+            <footer>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">لل</div>
+                <div>
+                  <h3 class="testimonial-name heading-3">ليلى عبدالله</h3>
+                  <div class="testimonial-role">مدير تقنية، قطاع صحي</div>
+                </div>
+              </div>
+              <div class="testimonial-company">Seha Platform — ملتزمة HIPAA</div>
+            </footer>
+          </article></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section id="contact" class="cta section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 class="heading-1 section-title" id="cta-title">مستعد للبدء؟</h2>
+        <p class="section-desc">أخبرنا عن مشروعك وسنرد عليك خلال 24 ساعة بخطة أولية وتقدير زمني.</p>
+
+        <form class="contact-form" action="#" method="POST" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" class="form-label">الاسم الكامل</label>
+              <input type="text" id="name" name="name" class="input" placeholder="أحمد محمد" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">البريد الإلكتروني</label>
+              <input type="email" id="email" name="email" class="input" placeholder="ahmed@company.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company" class="form-label">الشركة / المؤسسة</label>
+              <input type="text" id="company" name="company" class="input" placeholder="شركتي التقنية" autocomplete="organization">
+            </div>
+            <div class="form-group">
+              <label for="budget" class="form-label">الميزانية التقديرية</label>
+              <select id="budget" name="budget" class="input" required>
+                <option value="">اختر نطاق الميزانية</option>
+                <option value="under-50k">أقل من $50,000</option>
+                <option value="50k-100k">$50,000 - $100,000</option>
+                <option value="100k-250k">$100,000 - $250,000</option>
+                <option value="250k-500k">$250,000 - $500,000</option>
+                <option value="over-500k">أكثر من $500,000</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">وصف المشروع</label>
+            <textarea id="message" name="message" class="input" rows="5" placeholder="صف مشروعك، التحديات، والأهداف..." required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn--primary" style="width: 100%; max-width: 320px;">إرسال الطلب</button>
+          </div>
+          <p class="body-sm" style="margin-top: var(--space-m); text-align: center; color: color-mix(in srgb, var(--base) 60%, transparent);">بالإرسال، أنت توافق على <a href="#" class="link" style="font-size: var(--step--1); font-weight: 400;">سياسة الخصوصية</a> و <a href="#" class="link" style="font-size: var(--step--1); font-weight: 400;">شروط الخدمة</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo logo" aria-label="TechFlow - الرئيسية">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 18 2 12 8 6"></polyline></svg>
+            </span>
+            <span>TechFlow</span>
+          </a>
+          <p class="footer-desc">شريكك التقني لبناء منتجات رقمية قابلة للتوسع، آمنة، وسريعة. نحول التحديات المعقدة إلى حلول أنيقة.</p>
+          <ul class="footer-social" role="list" aria-label="روابط التواصل الاجتماعي" style="display: flex; gap: var(--space-m); list-style: none; padding: 0;">
+            <li role="listitem"><a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a></li>
+            <li role="listitem"><a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li>
+            <li role="listitem"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></li>
+          </ul>
+        </div>
+
+        <nav class="footer-links" aria-label="روابط الموقع">
+          <div class="footer-column">
+            <h3>الخدمات</h3>
+            <ul>
+              <li><a href="#services">تطوير SaaS</a></li>
+              <li><a href="#services">البنية السحابية</a></li>
+              <li><a href="#services">تطبيقات الويب والجوال</a></li>
+              <li><a href="#services">استشارات تقنية</a></li>
+              <li><a href="#services">الأمان والامتثال</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>الشركة</h3>
+            <ul>
+              <li><a href="#work">أعمالنا</a></li>
+              <li><a href="#testimonials">آراء العملاء</a></li>
+              <li><a href="#">فريقنا</a></li>
+              <li><a href="#">المدونة</a></li>
+              <li><a href="#">الوظائف</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>الموارد</h3>
+            <ul>
+              <li><a href="#">التوثيق</a></li>
+              <li><a href="#">واجهة برمجة التطبيقات</a></li>
+              <li><a href="#">حالة النظام</a></li>
+              <li><a href="#">مجتمع المطورين</a></li>
+              <li><a href="#">الأسئلة الشائعة</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>قانوني</h3>
+            <ul>
+              <li><a href="#">سياسة الخصوصية</a></li>
+              <li><a href="#">شروط الخدمة</a></li>
+              <li><a href="#">اتفاقية مستوى الخدمة</a></li>
+              <li><a href="#">سياسة الكوكيز</a></li>
+              <li><a href="#">إمكانية الوصول</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 TechFlow. جميع الحقوق محفوظة.</p>
+        <nav class="footer-legal" aria-label="روابط قانونية">
+          <a href="#">الخصوصية</a>
+          <a href="#">الشروط</a>
+          <a href="#">الكوكيز</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== MOBILE MENU =====
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      menuIcon.style.display = isOpen ? 'none' : 'block';
+      closeIcon.style.display = isOpen ? 'block' : 'none';
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ===== HEADER SCROLL EFFECT =====
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // ===== SCROLL REVEAL =====
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ===== FORM HANDLING =====
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'جاري الإرسال...';
+      submitBtn.setAttribute('aria-busy', 'true');
+
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      submitBtn.textContent = 'تم الإرسال بنجاح!';
+      submitBtn.style.background = '#22c55e';
+      submitBtn.style.borderColor = '#22c55e';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.style.background = '';
+        submitBtn.style.borderColor = '';
+        submitBtn.removeAttribute('aria-busy');
+        contactForm.reset();
+      }, 3000);
+    });
+
+    // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const headerHeight = header.offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ===== REDUCED MOTION RESPECT =====
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (prefersReducedMotion.matches) {
+      document.documentElement.style.setProperty('--dur-fast', '0.01ms');
+      document.documentElement.style.setProperty('--dur', '0.01ms');
+      document.documentElement.style.setProperty('--dur-slow', '0.01ms');
+    }
+  </script>
+</body>
+</html>
